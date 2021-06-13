@@ -1,0 +1,13 @@
+.ant-menu-submenu-selected {
+    color: red !important
+}
+
+.header.ant-menu {
+    background-color: #3399ff;
+    li {
+        &:hover {
+            color: red
+        }
+    }
+
+}
