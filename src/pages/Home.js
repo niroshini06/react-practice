@@ -1,16 +1,22 @@
 import React from "react";
 import { Menu } from "antd";
+import { Link } from "react-router-dom";
 
 function Home() {
-  function handleClick() {
-    console.log("hi");
-  }
   return (
-    <Menu className="header " onClick={handleClick} mode="horizontal">
-      <Menu.Item key="dashboard">Dashboard</Menu.Item>
-      <Menu.Item key="signUp">Sign up</Menu.Item>
-      <Menu.Item key="login">Login</Menu.Item>
-    </Menu>
+    <>
+      <Menu className="header" mode="horizontal">
+        <Menu.Item key="dashboard">
+          <Link to="/dashboard">Dashboard</Link>
+        </Menu.Item>
+        <Menu.Item key="signUp">
+          <Link to="/signup">Sign up</Link>
+        </Menu.Item>
+        <Menu.Item key="login">
+          <Link to="/login">Login</Link>
+        </Menu.Item>
+      </Menu>
+    </>
   );
 }
 
