@@ -1,7 +1,10 @@
 import { applyMiddleware, compose, createStore } from "redux";
 import thunk from "redux-thunk";
 import { loadFromLocalStorage, saveToLocalStorage } from "./localStorage";
-import userReducer from "./userReducer";
+import { combineReducers } from "redux";
+
+import userReducer from "./loginReducer";
+import feedReducer from "./feedReducer";
 /**
  * read already saved state data from local storage
  */
@@ -19,10 +22,18 @@ const composeEnhancers =
 const middlewares = [thunk];
 
 /**
+ * combine reducers
+ */
+const rootReducer = combineReducers({
+  user: userReducer,
+  feeds: feedReducer,
+});
+
+/**
  * STORE
  */
 const store = createStore(
-  userReducer,
+  rootReducer,
   persistedState, // initial store values (it will override the rootReducer state values)
   composeEnhancers(
     applyMiddleware(...middlewares) // middleware thunk...

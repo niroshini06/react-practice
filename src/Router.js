@@ -1,9 +1,11 @@
 import Home from "./pages/Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Login from "./components/Login";
-import Dashboard from "./components/Dashboard";
-import Signup from "./components/Signup";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import Signup from "./pages/Signup";
+import News from "./pages/News";
+import NewsDetail from "./pages/NewsDetail";
 
 function Router() {
   return (
@@ -17,6 +19,12 @@ function Router() {
         </Route>
         <Route exact path="/signup">
           <Signup />
+        </Route>
+        <Route exact path="/news">
+          <News />
+        </Route>
+        <Route exact path="/news-detail/:paper">
+          <NewsDetail />
         </Route>
         <Route exact path="/">
           <Home />
