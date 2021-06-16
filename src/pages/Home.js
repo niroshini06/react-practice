@@ -15,6 +15,9 @@ function Home() {
         <Menu.Item key="login">
           <Link to="/login">Login</Link>
         </Menu.Item>
+        <Menu.Item key="tabs">
+          <Link to="/tabs">Tabs</Link>
+        </Menu.Item>
       </Menu>
     </>
   );

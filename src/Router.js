@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import Signup from "./pages/Signup";
 import News from "./pages/News";
 import NewsDetail from "./pages/NewsDetail";
+import TabTemp from "./pages/TabTemp";
 
 function Router() {
   return (
@@ -25,6 +26,9 @@ function Router() {
         </Route>
         <Route exact path="/news-detail/:paper">
           <NewsDetail />
+        </Route>
+        <Route exact path="/tabs">
+          <TabTemp />
         </Route>
         <Route exact path="/">
           <Home />
