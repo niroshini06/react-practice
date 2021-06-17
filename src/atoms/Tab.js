@@ -10,11 +10,14 @@ const StyledTab = styled.button`
   border: none;
   text-align: center;
   margin: 5px;
-  background-color: ${(props) => (props.selected ? "red" : "99ccff")};
+  background-color: ${(props) => {
+    console.log("inside tab comp", props.tabSelected);
+    return props.tabSelected ? "red" : "#99ccff";
+  }};
 `;
 
-function Tab(props) {
-  return <StyledTab onClick={props.onClick}>{props.children}</StyledTab>;
-}
+// function Tab(props) {
+//   return <StyledTab onClick={props.onClick}>{props.children}</StyledTab>;
+// }
 
-export default Tab;
+export default StyledTab;
