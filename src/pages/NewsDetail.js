@@ -36,7 +36,6 @@ function NewsDetail() {
               style={{ maxWidth: "90%" }}
             >
               <p>{e.children[4].value}</p>
-              {/* <p>{e.children[3].value}</p> */}
               <Link to={{ pathname: e.children[3].value }} target="_blank">
                 {e.children[3].value}
               </Link>
