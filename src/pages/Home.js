@@ -13,13 +13,16 @@ function Home() {
           <Link to="/signup">Sign up</Link>
         </Menu.Item>
         <Menu.Item key="login">
-          <Link to="/login">Login</Link>
+          c<Link to="/login">Login</Link>
         </Menu.Item>
         <Menu.Item key="tabs">
           <Link to="/tabs">Tabs</Link>
         </Menu.Item>
         <Menu.Item key="nested-routes">
           <Link to="/nested-routes">nestedRoutes</Link>
+        </Menu.Item>
+        <Menu.Item key="guidance-app">
+          <Link to="/guidance-app">guidance-app</Link>
         </Menu.Item>
       </Menu>
     </>

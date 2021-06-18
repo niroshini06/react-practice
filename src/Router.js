@@ -8,6 +8,7 @@ import News from "./pages/News";
 import NewsDetail from "./pages/NewsDetail";
 import TabTemp from "./pages/TabTemp";
 import NestedRoute from "./pages/NestedRoute";
+import GuidanceApp from "./pages/GuidanceApp";
 
 function Router() {
   return (
@@ -34,6 +35,9 @@ function Router() {
         {/* Note: dont add exact match to the routes that need to be nested */}
         <Route path="/nested-routes">
           <NestedRoute />
+        </Route>
+        <Route path="/guidance-app">
+          <GuidanceApp />
         </Route>
         <Route exact path="/">
           <Home />
