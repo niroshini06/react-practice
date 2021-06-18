@@ -4,9 +4,13 @@ import FlexCenter from "../atoms/FlexCenter";
 import { useSelector } from "react-redux";
 
 function GuidanceApp() {
-  const fruitsArray = useSelector((state) => state.fruits.fruitsArray);
-  let revArr = [...fruitsArray];
-  revArr.reverse();
+  const { fruitsArray = [] } = useSelector((state) => {
+    console.log("gui-appp", state.fruits);
+    return state.fruits;
+  });
+  console.log("gui-fruitsArray", fruitsArray);
+  //   let revArr = [...fruitsArray];
+  //   revArr?.reverse();
 
   return (
     <FlexCenter style={{ width: "75%" }}>
@@ -14,7 +18,7 @@ function GuidanceApp() {
       <Fruit color="orange" fruitName="orange" />
       <Fruit color="violet" fruitName="grapes" />
       <div>
-        {revArr.map((e, i) => (
+        {fruitsArray?.map((e, i) => (
           <li key={i}>{e}</li>
         ))}
       </div>

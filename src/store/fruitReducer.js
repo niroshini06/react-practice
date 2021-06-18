@@ -1,11 +1,12 @@
 const initialState = {
-  appleCount: 0,
-  orangeCount: 0,
-  grapesCount: 0,
-  fruitsArray: [],
+  fruitsArray: ["kilo"],
+  appleCount: 10,
+  orangeCount: 10,
+  grapesCount: 10,
 };
 
 export default function fruitReducer(state = initialState, action) {
+  console.log("initial state", initialState);
   switch (action.type) {
     case "increment-apple": {
       if (state.appleCount === 10) {
@@ -14,7 +15,7 @@ export default function fruitReducer(state = initialState, action) {
       return {
         ...state,
         appleCount: state.appleCount + 1,
-        fruitsArray: [...state.fruitsArray, "apple"],
+        fruitsArray: [...state?.fruitsArray, "apple"],
       };
     }
     case "increment-orange": {
@@ -24,7 +25,7 @@ export default function fruitReducer(state = initialState, action) {
       return {
         ...state,
         orangeCount: state.orangeCount + 1,
-        fruitsArray: [...state.fruitsArray, "orange"],
+        fruitsArray: [...state?.fruitsArray, "orange"],
       };
     }
     case "increment-grapes": {
@@ -34,7 +35,7 @@ export default function fruitReducer(state = initialState, action) {
       return {
         ...state,
         grapesCount: state.grapesCount + 1,
-        fruitsArray: [...state.fruitsArray, "grapes"],
+        fruitsArray: [...state?.fruitsArray, "grapes"],
       };
     }
     case "decrement-apple": {
@@ -44,7 +45,7 @@ export default function fruitReducer(state = initialState, action) {
       return {
         ...state,
         appleCount: state.appleCount - 1,
-        fruitsArray: state.fruitsArray.pop(),
+        fruitsArray: state?.fruitsArray?.pop(),
       };
     }
     case "decrement-orange": {
@@ -54,7 +55,7 @@ export default function fruitReducer(state = initialState, action) {
       return {
         ...state,
         orangeCount: state.orangeCount - 1,
-        fruitsArray: state.fruitsArray.pop(),
+        fruitsArray: state?.fruitsArray?.pop(),
       };
     }
     case "decrement-grapes": {
@@ -64,7 +65,7 @@ export default function fruitReducer(state = initialState, action) {
       return {
         ...state,
         grapesCount: state.grapesCount - 1,
-        fruitsArray: state.fruitsArray.pop(),
+        fruitsArray: state?.fruitsArray?.pop(),
       };
     }
     default:

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import FlexCenter from "../atoms/FlexCenter";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,32 +27,48 @@ const roundedDiv = {
 function Fruit(props) {
   const [count, setCount] = useState(10);
   const dispatch = useDispatch();
-  const fruitsArray = useSelector((state) => state.fruits.fruitsArray);
+  const {
+    appleCount,
+    orangeCount,
+    grapesCount,
+    fruitsArray = [],
+  } = useSelector((state) => state.fruits);
+
+  useEffect(() => {
+    if (props.fruitName === "apple") {
+      setCount(appleCount);
+    } else if (props.fruitName === "orange") {
+      setCount(orangeCount);
+    } else if (props.fruitName === "grapes") {
+      setCount(grapesCount);
+    }
+  }, [props.fruitName]);
 
   function increment() {
     switch (props.fruitName) {
       case "apple": {
-        dispatch({ type: "increment-apple" });
+        console.log("----");
+        dispatch({ type: "decrement-apple" });
       }
       case "orange": {
-        dispatch({ type: "increment-orange" });
+        dispatch({ type: "decrement-orange" });
       }
       case "grapes": {
-        dispatch({ type: "increment-grapes" });
+        dispatch({ type: "decrement-grapes" });
       }
     }
   }
   function decrement() {
-    if (props.fruitName === fruitsArray[fruitsArray.length - 1]) {
+    if (props.fruitName === fruitsArray[fruitsArray?.length - 1]) {
       switch (props.fruitName) {
         case "apple": {
-          dispatch({ type: "decrement-apple" });
+          dispatch({ type: "increment-apple" });
         }
         case "orange": {
-          dispatch({ type: "decrement-orange" });
+          dispatch({ type: "increment-orange" });
         }
         case "grapes": {
-          dispatch({ type: "decrement-grapes" });
+          dispatch({ type: "increment-grapes" });
         }
       }
     } else {
