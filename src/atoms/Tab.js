@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledTab = styled.button`
   // background-color: #99ccff;
-  width: 100px;
+  min-width: 300px;
   height: 40px;
   line-height: 40px;
   border-radius: 10px;

@@ -2,14 +2,35 @@ import React, { useState, useEffect } from "react";
 import Tab from "../atoms/Tab";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleLeft,
+  faAngleRight,
+  faPlus,
+} from "@fortawesome/free-solid-svg-icons";
 import { Row, Col } from "antd";
 
-const StyledTabsDiv = styled.div`
-  border-bottom: solid 1px black;
-  height: 50px;
-  line-height: 50px;
+const TabsOuter = styled.div`
+  max-width: 80%;
+  height: 60px;
+  overflow: hidden;
+  margin: 20px;
+`;
+
+const Tabs = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 5px;
+  overflow-x: auto;
+  overflow-y: hidden;
+`;
+
+const TabsContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
 `;
 
 function TabTemp() {
@@ -34,31 +55,29 @@ function TabTemp() {
   }, [currentTabIndex]);
   return (
     <div className="outer" style={{ border: "solid 1px black" }}>
-      <StyledTabsDiv>
-        <Row align="middle">
-          <Col>
-            <FontAwesomeIcon icon={faAngleLeft} size="lg" />
-          </Col>
-          <Col>
-            <Row>
-              {tabCount.map((e, i) => (
-                <Col key={i}>
-                  <Tab
-                    onClick={() => handleTabClick(i)}
-                    tabSelected={i === currentTabIndex}
-                  >
-                    <span>{e.title}</span>
-                  </Tab>
-                </Col>
-              ))}
-            </Row>
-          </Col>
-          <Col>
-            <FontAwesomeIcon icon={faPlus} size="lg" onClick={addTab} />
-          </Col>
-        </Row>
-      </StyledTabsDiv>
-      <p> {tabCount[currentTabIndex].value} </p>
+      <TabsContainer>
+        <FontAwesomeIcon icon={faAngleLeft} size="lg" />
+        <TabsOuter>
+          <Tabs>
+            {tabCount.map((e, i) => (
+              <Tab
+                key={i}
+                onClick={() => handleTabClick(i)}
+                tabSelected={i === currentTabIndex}
+              >
+                <span>{e.title}</span>
+              </Tab>
+            ))}
+          </Tabs>
+        </TabsOuter>
+        <FontAwesomeIcon icon={faPlus} size="lg" onClick={addTab} />
+
+        <FontAwesomeIcon icon={faAngleRight} size="lg" />
+      </TabsContainer>
+
+      <p style={{ borderTop: "solid 1px black" }}>
+        {tabCount[currentTabIndex].value}
+      </p>
     </div>
   );
 }
