@@ -1,5 +1,5 @@
 import Home from "./pages/Home";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, useRouteMatch } from "react-router-dom";
 
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -7,6 +7,7 @@ import Signup from "./pages/Signup";
 import News from "./pages/News";
 import NewsDetail from "./pages/NewsDetail";
 import TabTemp from "./pages/TabTemp";
+import NestedRoute from "./pages/NestedRoute";
 
 function Router() {
   return (
@@ -29,6 +30,10 @@ function Router() {
         </Route>
         <Route exact path="/tabs">
           <TabTemp />
+        </Route>
+        {/* Note: dont add exact match to the routes that need to be nested */}
+        <Route path="/nested-routes">
+          <NestedRoute />
         </Route>
         <Route exact path="/">
           <Home />

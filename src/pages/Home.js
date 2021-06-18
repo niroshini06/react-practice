@@ -18,6 +18,9 @@ function Home() {
         <Menu.Item key="tabs">
           <Link to="/tabs">Tabs</Link>
         </Menu.Item>
+        <Menu.Item key="nested-routes">
+          <Link to="/nested-routes">nestedRoutes</Link>
+        </Menu.Item>
       </Menu>
     </>
   );
