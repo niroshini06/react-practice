@@ -6,8 +6,7 @@ import { combineReducers } from "redux";
 import userReducer from "./loginReducer";
 import feedReducer from "./feedReducer";
 import fruitReducer from "./fruitReducer";
-console.log("feedReducer", feedReducer);
-console.log("fruitReducer", fruitReducer);
+
 /**
  * read already saved state data from local storage
  */

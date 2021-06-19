@@ -42,19 +42,22 @@ function Fruit(props) {
     } else if (props.fruitName === "grapes") {
       setCount(grapesCount);
     }
-  }, [props.fruitName]);
+  }, [useSelector((state) => state.fruits)]);
 
   function increment() {
+    console.log("invoking ---", props.fruitName);
     switch (props.fruitName) {
       case "apple": {
-        console.log("----");
-        dispatch({ type: "decrement-apple" });
+        dispatch({ type: "ADD_APPLE_TO_CART" });
+        break;
       }
       case "orange": {
-        dispatch({ type: "decrement-orange" });
+        dispatch({ type: "ADD_ORANGE_TO_CART" });
+        break;
       }
       case "grapes": {
-        dispatch({ type: "decrement-grapes" });
+        dispatch({ type: "ADD_GRAPES_TO_CART" });
+        break;
       }
     }
   }
@@ -62,13 +65,16 @@ function Fruit(props) {
     if (props.fruitName === fruitsArray[fruitsArray?.length - 1]) {
       switch (props.fruitName) {
         case "apple": {
-          dispatch({ type: "increment-apple" });
+          dispatch({ type: "REMOVE_APPLE_FROM_CART" });
+          break;
         }
         case "orange": {
-          dispatch({ type: "increment-orange" });
+          dispatch({ type: "REMOVE_ORANGE_FROM_CART" });
+          break;
         }
         case "grapes": {
-          dispatch({ type: "increment-grapes" });
+          dispatch({ type: "REMOVE_GRAPES_FROM_CART" });
+          break;
         }
       }
     } else {
