@@ -24,6 +24,9 @@ function Home() {
         <Menu.Item key="guidance-app">
           <Link to="/guidance-app">guidance-app</Link>
         </Menu.Item>
+        <Menu.Item key="guidance-app2">
+          <Link to="/guidance-app2">guidance-app2</Link>
+        </Menu.Item>
       </Menu>
     </>
   );
